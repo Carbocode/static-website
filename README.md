@@ -1,5 +1,4 @@
 # static-website-template
-HTML Template
 This is an HTML Website Template that I personally use to start all my projects. 
 It's implemented custom css to help my front-end developing experience.
 Usually Browsers implement their own stylesheets, so I integrated some attributes to reset HTML Tags rendering.
