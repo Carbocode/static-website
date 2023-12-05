@@ -1,16 +1,45 @@
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
-  background-color: var(--accent-color);
+  background-color: var(--background-color);
   padding: 0;
   margin: 0;
-  text-align: justify;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  letter-spacing: 1.4px;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+  font-size: var(--font-m);
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+pre,
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
-  color: var(--text-color);
+  color: var(--accent-color);
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 h1,
@@ -18,23 +47,143 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
-  margin-top: 0;
-  padding-top: 0;
-  color: var(--text-color);
+h6 {
+  margin: 0;
+  padding: 0;
+  color: var(--primary-color);
+  font-weight: 500;
+
+  &.invert {
+    color: white;
+  }
 }
 
-ul {
+p {
+  margin: 0;
+  padding: 0;
+
+  &.invert {
+    color: white;
+  }
+}
+
+pre {
+  max-width: 100%;
+  white-space: pre-wrap;
+}
+
+hr {
+  border-color: var(--primary-color);
+}
+
+button {
+  border: none;
+  padding: clamp(5px, 1rem, 1vh) clamp(20px, 2rem, 3vw);
+  border-radius: 9999px;
+  background: var(--primary-gradient);
+  color: var(--background-color-contrast);
+  box-shadow: var(--box-shadow);
+
+  font-weight: 500;
+
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.01);
+  }
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &.accent {
+    background: var(--accent-color);
+    color: white;
+  }
+
+  &.invert {
+    background: white;
+    color: var(--primary-color);
+  }
+
+  &.empty {
+    background: var(--primary-gradient);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    outline: 3px solid var(--primary-color);
+
+    &-invert {
+      border: 3px solid white;
+      background: transparent;
+      color: white;
+    }
+  }
+}
+
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+ol,
+ul,
+li {
+  height: min-content;
+}
+
+//------------------ FONT SIZES ------------------//
+
+h1 {
+  font-size: var(--font-xxxl);
+}
+h2 {
+  font-size: var(--font-xxl);
+}
+h3 {
+  font-size: var(--font-xl);
+}
+h4 {
+  font-size: var(--font-l);
+  font-weight: 500;
+}
+p,
+pre,
+label,
+blockquote,
+code,
+address,
+button,
+input,
+textarea,
+label {
+  font-size: var(--font-m);
+}
+
+small {
+  font-size: var(--font-s);
+}
+
+//------------------ VARS ------------------//
+
 :root {
-  --primary-color: rgb(0, 0, 0);
-  --secondary-color: #292929;
-  --text-color: rgb(255, 255, 255);
-  --accent-color: rgb(216, 75, 255);
-  --navbar: 40px;
+  --primary-color: #ac7d3a;
+  --text-color: #353535;
+  --accent-color: #bc9516;
+  --background-color-contrast: #f5f5f5;
+  --background-color: #ffffff;
+  --navbar: clamp(50px, 8vh, 60px);
+  --box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+
+  --border-radius: 20px;
+
+  --font-xxxl: clamp(2.75rem, 4vw + 1.25rem, 4.25rem);
+  --font-xxl: clamp(2rem, 2vw + 1.5rem, 3rem);
+  --font-xl: clamp(1.5rem, 2vw + 0.75rem, 2.5rem);
+  --font-l: clamp(1.25rem, 1vw + 1rem, 1.75rem);
+  --font-m: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+  --font-s: clamp(0.65rem, 1vw + 0.25rem, 1rem);
 }
